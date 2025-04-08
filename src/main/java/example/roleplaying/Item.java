@@ -1,22 +1,32 @@
 package example.roleplaying;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
 
+@Entity
 public class Item {
-    @Entity
-    public class Book {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        private String name;
+    private String name;
 
-        @Enumerated(EnumType.STRING)
-        private Category category;
+    private float strength;
 
-        @ManyToOne
-        @JoinColumn(name = "character_id")
-        private Character character;
+    private float defense;
+
+    @Enumerated(EnumType.STRING)
+    private ItemType itemType;
+
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private Character character;
+
+    public Item(Long id, String name, float strength, float defense, ItemType itemType, Character character) {
+        this.id = id;
+        this.name = name;
+        this.strength = strength;
+        this.defense = defense;
+        this.itemType = itemType;
+        this.character = character;
     }
 }
