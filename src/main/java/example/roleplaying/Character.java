@@ -1,7 +1,6 @@
 package example.roleplaying;
 
 import jakarta.persistence.*;
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Character {
     private String name;
 
     @Column(length = 1000)
-    private String nomeAventurer;
+    private String nomeAdventurer;
 
     private int level;
 
@@ -27,32 +26,87 @@ public class Character {
     private Category category;
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Book> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
+
+    public Character() {}
 
     public Character(Long id, String name, String nomeAdventurer, int level, float strength, float defense, Category category) {
         this.id = id;
         this.name = name;
-        this.nomeAventurer = nomeAdventurer;
+        this.nomeAdventurer = nomeAdventurer;
         this.level = level;
         this.strength = strength;
         this.defense = defense;
         this.category = category;
     }
 
-    public Object getName() {
-        return null;
+    // getters
+
+    public Long getId() {
+        return id;
     }
 
-    public Object getDescription() {
-        return null;
+    public String getName() {
+        return name;
     }
 
-    public void setName(Object name) {
+    public String getDescription() {
+        return nomeAdventurer;
     }
 
-    public void setDescription(Object description) {
+    public int getLevel() {
+        return level;
     }
 
-    public void setCharacter(Character character) {
+    public float getStrength() {
+        return strength;
+    }
+
+    public float getDefense() {
+        return defense;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public List<Item> getItems() {
+        return new ArrayList<>(items);
+    }
+
+    // setters
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String nomeAdventurer) {
+        this.nomeAdventurer = nomeAdventurer;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setStrength(float strength) {
+        this.strength = strength;
+    }
+
+    public void setDefense(float defense) {
+        this.defense = defense;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void addItem(Item item) {
+        item.setCharacter(this);
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        item.setCharacter(null);
+        this.items.remove(item);
     }
 }
