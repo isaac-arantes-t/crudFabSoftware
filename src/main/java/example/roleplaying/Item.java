@@ -11,9 +11,9 @@ public class Item {
 
     private String name;
 
-    private float strength;
+    private int strength;
 
-    private float defense;
+    private int defense;
 
     @Enumerated(EnumType.STRING)
     private ItemType itemType;
@@ -25,7 +25,7 @@ public class Item {
 
     public Item() {}
 
-    public Item(Long id, String name, float strength, float defense, ItemType itemType, Character character) {
+    public Item(Long id, String name, int strength, int defense, ItemType itemType, Character character) {
         this.id = id;
         this.name = name;
         this.strength = strength;
@@ -43,11 +43,11 @@ public class Item {
         return name;
     }
 
-    public float getStrength() {
+    public int getStrength() {
         return strength;
     }
 
-    public float getDefense() {
+    public int getDefense() {
         return defense;
     }
 
@@ -68,11 +68,11 @@ public class Item {
         this.name = name;
     }
 
-    public void setStrength(float strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public void setDefense(float defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 

@@ -75,17 +75,17 @@ public class CharacterService {
         return characterRepository.save(character);
     }
 
-    public float getTotalStrength(Character character) {
-        float itemStrength = character.getItems().stream()
+    public int getTotalStrength(Character character) {
+        int itemStrength = character.getItems().stream()
                 .map(Item::getStrength)
-                .reduce(0f, Float::sum);
+                .reduce(0f, int::sum);
         return character.getStrength() + itemStrength;
     }
 
-    public float getTotalDefense(Character character) {
-        float itemDefense = character.getItems().stream()
+    public int getTotalDefense(Character character) {
+        int itemDefense = character.getItems().stream()
                 .map(Item::getDefense)
-                .reduce(0f, Float::sum);
+                .reduce(0f, int::sum);
         return character.getDefense() + itemDefense;
     }
 }

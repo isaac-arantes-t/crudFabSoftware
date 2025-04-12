@@ -17,9 +17,9 @@ public class Character {
 
     private int level;
 
-    private float strength;
+    private int strength;
 
-    private float defense;
+    private int defense;
 
     @Enumerated(EnumType.STRING)
     @Column(updatable = false)
@@ -30,7 +30,7 @@ public class Character {
 
     public Character() {}
 
-    public Character(Long id, String name, String nomeAdventurer, int level, float strength, float defense, Category category) {
+    public Character(Long id, String name, String nomeAdventurer, int level, int strength, int defense, Category category) {
         this.id = id;
         this.name = name;
         this.nomeAdventurer = nomeAdventurer;
@@ -58,11 +58,11 @@ public class Character {
         return level;
     }
 
-    public float getStrength() {
+    public int getStrength() {
         return strength;
     }
 
-    public float getDefense() {
+    public int getDefense() {
         return defense;
     }
 
@@ -88,11 +88,11 @@ public class Character {
         this.level = level;
     }
 
-    public void setStrength(float strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public void setDefense(float defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 

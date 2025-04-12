@@ -46,16 +46,16 @@ public class CharacterController {
     }
 
     @GetMapping("/{id}/total-strength")
-    public ResponseEntity<Float> getTotalStrength(@PathVariable Long id) {
+    public ResponseEntity<int> getTotalStrength(@PathVariable Long id) {
         Character character = characterService.getCharacterById(id);
-        float total = characterService.getTotalStrength(character);
+        int total = characterService.getTotalStrength(character);
         return ResponseEntity.ok(total);
     }
 
     @GetMapping("/{id}/total-defense")
-    public ResponseEntity<Float> getTotalDefense(@PathVariable Long id) {
+    public ResponseEntity<int> getTotalDefense(@PathVariable Long id) {
         Character character = characterService.getCharacterById(id);
-        float total = characterService.getTotalDefense(character);
+        int total = characterService.getTotalDefense(character);
         return ResponseEntity.ok(total);
     }
 }
